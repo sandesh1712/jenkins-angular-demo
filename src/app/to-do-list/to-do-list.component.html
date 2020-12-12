@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 m-auto">
+            <mat-card class="mt-2 h-auto">
+                <mat-card-header>
+                    <mat-card-title>To DO List by Sandesh</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <mat-form-field class="w-100">
+                        <mat-label>Enter Task</mat-label>
+                        <input matInput type="text" id="taskInput" color="warn" [(ngModel)]="task">
+                    </mat-form-field>
+                    <button class="btn btn-success btn-sm w-100" (click)="add()">ADD</button>
+                </mat-card-content>
+                <mat-card-content *ngIf="tasks.length>0" style="overflow-y: scroll;">
+                    <mat-card *ngFor="let task of tasks;let i=index" class="w-100 my-1 py-1" style="height: 45px;">
+                        <span class="float-left mr-1  h-auto">
+                            <mat-slide-toggle (click)="changeStatus(i)"></mat-slide-toggle>
+                            </span>
+                        <span class="float-left m-1 h-auto">{{task["task"]}}</span>
+                        <button class="btn btn-danger btn-sm float-right ml-1 h-auto" (click)="delete(i)">Delete</button>
+                    </mat-card>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
